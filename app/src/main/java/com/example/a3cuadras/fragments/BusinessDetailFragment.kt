@@ -35,8 +35,8 @@ class BusinessDetailFragment: Fragment(), OnMapReadyCallback {
                 map.moveCamera(CameraUpdateFactory.newLatLng(mLatLng))
                 val mGoogleMapOptions : GoogleMapOptions = GoogleMapOptions().liteMode(true)
                 map.mapType = mGoogleMapOptions.mapType
-                map.uiSettings.setAllGesturesEnabled(false)
-                map.animateCamera(CameraUpdateFactory.zoomTo(100.0f))
+                //map.uiSettings.setAllGesturesEnabled(false)
+                map.animateCamera(CameraUpdateFactory.zoomTo(13.0f))
             }
 
 
