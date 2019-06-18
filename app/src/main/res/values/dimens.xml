@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="business_list_fragment_padding">14dp</dimen>
+    <dimen name="business_cardview_height">300dp</dimen>
+    <dimen name="business_cardview_cornerRadius">8dp</dimen>
+    <dimen name="business_image_height">220dp</dimen>
+    <dimen name="business_fields_margin">16dp</dimen>
+    <dimen name="business_name_text_size">20sp</dimen>
+    <dimen name="business_distance_text_size">14sp</dimen>
+    <dimen name="pin_image_marginLeft">0dp</dimen>
+    <dimen name="business_favorite_image_marginLeft">10dp</dimen>
+    <dimen name="business_name_max_width">220dp</dimen>
+    <dimen name="toolbar_margin_top">20dp</dimen>
+    <dimen name="toolbar_preferences_width">45dp</dimen>
+    <dimen name="toolbar_preferences_height">45dp</dimen>
+    <dimen name="toolbar_margin_end">30dp</dimen>
+    <dimen name="view_pager_size">300dp</dimen>
+</resources>

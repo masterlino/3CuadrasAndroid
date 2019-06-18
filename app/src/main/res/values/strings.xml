@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">3Cuadras</string>
+    <string name="navigationTodos">Todos</string>
+    <string name="navigationFavourites">Favoritos</string>
+    <string name="rating_tail">/5</string>
+    <string name="price_tail">(max $$$$)</string>
+    <string name="closed">Cerrado</string>
+    <string name="open">Abierto</string>
+    <string name="not_available">No disponible</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
