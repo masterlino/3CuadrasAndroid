@@ -51,23 +51,23 @@
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:orientation="vertical"
-                      android:padding="20dp">
+                      android:padding="@dimen/linearLayout_details_padding">
             <LinearLayout android:layout_width="match_parent"
                           android:layout_height="wrap_content"
                           android:orientation="horizontal"
                           android:layout_gravity="center"
-                          android:layout_marginBottom="15dp">
+                          android:layout_marginBottom="@dimen/linear_layout_margin_bottom">
                 <ImageView android:id="@+id/iv_rating_ic"
-                           android:layout_width="40dp"
-                           android:layout_height="40dp"
-                            android:src="@mipmap/ic_launcher"/>
+                           android:layout_width="@dimen/business_detail_icon_size"
+                           android:layout_height="@dimen/business_detail_icon_size"
+                            android:src="@drawable/star"/>
                 <TextView android:id="@+id/tv_rating"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Valoracion del negocio"
                           android:layout_gravity="center"
                           android:layout_marginStart="20dp"
-                          android:textSize="25dp"
+                          android:textSize="@dimen/tv_business_details_font_size"
                           android:textStyle="bold"
                           android:textColor="@color/colorPrimary"
                           android:fontFamily="sans-serif-thin"/>
@@ -76,18 +76,18 @@
                           android:layout_height="wrap_content"
                           android:orientation="horizontal"
                           android:layout_gravity="center"
-                          android:layout_marginBottom="15dp">
+                          android:layout_marginBottom="@dimen/linear_layout_margin_bottom">
                 <ImageView android:id="@+id/iv_price_ic"
-                           android:layout_width="40dp"
-                           android:layout_height="40dp"
-                           android:src="@mipmap/ic_launcher"/>
+                           android:layout_width="@dimen/business_detail_icon_size"
+                           android:layout_height="@dimen/business_detail_icon_size"
+                           android:src="@drawable/expensive"/>
                 <TextView android:id="@+id/tv_price"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="precio medio del negocio"
                           android:layout_gravity="center"
                           android:layout_marginStart="20dp"
-                          android:textSize="25dp"
+                          android:textSize="@dimen/tv_business_details_font_size"
                           android:textStyle="bold"
                           android:textColor="@color/colorPrimary"
                           android:fontFamily="sans-serif-thin"/>
@@ -96,18 +96,18 @@
                           android:layout_height="wrap_content"
                           android:orientation="horizontal"
                           android:layout_gravity="center"
-                          android:layout_marginBottom="15dp">
+                          android:layout_marginBottom="@dimen/linear_layout_margin_bottom">
                 <ImageView android:id="@+id/iv_available_ic"
-                           android:layout_width="40dp"
-                           android:layout_height="40dp"
-                           android:src="@mipmap/ic_launcher"/>
+                           android:layout_width="@dimen/business_detail_icon_size"
+                           android:layout_height="@dimen/business_detail_icon_size"
+                           android:src="@drawable/open"/>
                 <TextView android:id="@+id/tv_available"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Abierto"
                           android:layout_gravity="center"
                           android:layout_marginStart="20dp"
-                          android:textSize="25dp"
+                          android:textSize="@dimen/tv_business_details_font_size"
                           android:textStyle="bold"
                           android:textColor="@color/colorPrimary"
                           android:fontFamily="sans-serif-thin"/>
@@ -118,16 +118,16 @@
                           android:layout_gravity="center"
                           >
                 <ImageView android:id="@+id/iv_phone_ic"
-                           android:layout_width="40dp"
-                           android:layout_height="40dp"
-                           android:src="@mipmap/ic_launcher"/>
+                           android:layout_width="@dimen/business_detail_icon_size"
+                           android:layout_height="@dimen/business_detail_icon_size"
+                           android:src="@drawable/phone"/>
                 <TextView android:id="@+id/tv_phone"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="@string/not_available"
                           android:layout_gravity="center"
                           android:layout_marginStart="20dp"
-                          android:textSize="25dp"
+                          android:textSize="@dimen/tv_business_details_font_size"
                           android:textStyle="bold"
                           android:autoLink="phone"
                           android:textColor="@color/colorPrimary"
@@ -151,15 +151,15 @@
                         android:layout_height="wrap_content"
                         android:text="Localización"
                         android:textColor="@android:color/black"
-                        android:textSize="18dp"
+                        android:textSize="@dimen/label_font_size"
                         android:textStyle="bold" />
 
                 <fragment
                         android:id="@+id/map"
                         android:name="com.google.android.gms.maps.SupportMapFragment"
                         android:layout_width="match_parent"
-                        android:layout_height="120dp"
-                        android:layout_marginTop="6dp" />
+                        android:layout_height="@dimen/fragment_map_layout_height_"
+                        android:layout_marginTop="@dimen/map_fragment_top_margin" />
 
             </LinearLayout>
 

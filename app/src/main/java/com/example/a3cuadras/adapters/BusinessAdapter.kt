@@ -19,7 +19,7 @@ class BusinessAdapter(private var items: List<BusinessItem>, val listener: (Busi
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.business_cardview,
+                R.layout.business_detail_cardview,
                 parent,
                 false
             )

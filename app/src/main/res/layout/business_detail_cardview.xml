@@ -26,13 +26,14 @@
             <TextView android:id="@+id/tv_business_name"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
-                      tools:text="Restaurant Name"
+                      tools:text="Restaurant Name fsjafljad jofajos fja jf jas aosf"
                       android:textStyle="bold"
                       android:textColor="@color/colorPrimaryDark"
                       android:textSize="@dimen/business_name_text_size"
                       android:layout_centerVertical="true"
                       android:layout_alignParentStart="true"
-                      android:maxWidth="@dimen/business_name_max_width"/>
+                      android:maxWidth="@dimen/business_name_max_width"
+                      />
             <TextView android:id="@+id/tv_business_distance"
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"

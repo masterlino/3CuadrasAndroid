@@ -15,4 +15,11 @@
     <dimen name="toolbar_preferences_height">45dp</dimen>
     <dimen name="toolbar_margin_end">30dp</dimen>
     <dimen name="view_pager_size">300dp</dimen>
+    <dimen name="tv_business_details_font_size">19dp</dimen>
+    <dimen name="linear_layout_margin_bottom">2dp</dimen>
+    <dimen name="business_detail_icon_size">40dp</dimen>
+    <dimen name="linearLayout_details_padding">10dp</dimen>
+    <dimen name="label_font_size">18dp</dimen>
+    <dimen name="map_fragment_top_margin">6dp</dimen>
+    <dimen name="fragment_map_layout_height_">240dp</dimen>
 </resources>
