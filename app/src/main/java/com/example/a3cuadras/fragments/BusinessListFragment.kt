@@ -2,8 +2,10 @@ package com.example.a3cuadras.fragments
 
 import android.arch.persistence.room.Room
 import android.content.Intent
+import android.location.Location
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -22,22 +24,37 @@ import kotlinx.android.synthetic.main.business_list_fragment.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
-class BusinessListFragment : Fragment() {
+class BusinessListFragment: Fragment() {
     private lateinit var favoritesDB : FavoriteBusinessDatabase
 
-    private val URL = "https://api.yelp.com/v3/businesses/search?location=NYC"
+    private val URL = "https://api.yelp.com/v3/businesses/search?"
+    private var URLLocation : String? = null
+    private var mLocation: Location? = null
 
+    private var mView : View? = null
+    private var mswipeRefreshLayout : SwipeRefreshLayout? = null
     private var adapter: BusinessAdapter? = null
 
     companion object{
-        fun newInstance(): BusinessListFragment{
-            return BusinessListFragment()
+        fun newInstance(location: Location?): BusinessListFragment{
+            val businessListFragment : BusinessListFragment = BusinessListFragment()
+            val args : Bundle = Bundle()
+            args.putParcelable("currentLocation" , location)
+            businessListFragment.arguments = args
+            return businessListFragment
         }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.business_list_fragment, container, false)
-
+        //get the current location if exits
+        mLocation = arguments?.getParcelable("currentLocation")
+        if (mLocation != null){
+            URLLocation = URL + "latitude=" + mLocation!!.latitude.toString() + "&longitude=" + mLocation!!.longitude.toString()
+        }
+        mView = inflater.inflate(R.layout.business_list_fragment, container, false)
+        mswipeRefreshLayout = mView?.findViewById(R.id.swipeRefresh_Layout)
+        mswipeRefreshLayout?.setOnRefreshListener { launcRequest() }
+        return mView
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,7 +64,10 @@ class BusinessListFragment : Fragment() {
     }
 
     private fun launcRequest() {
-        val newRequest = GsonRequest<BusinessListItem>(URL, BusinessListItem::class.java, null,
+        var mUrl : String
+        if (URLLocation != null) mUrl = URLLocation!!
+        else mUrl = URL
+        val newRequest = GsonRequest<BusinessListItem>(mUrl, BusinessListItem::class.java, null,
             Response.Listener<BusinessListItem> {
 
                 doAsync {
@@ -102,6 +122,7 @@ class BusinessListFragment : Fragment() {
             }
         }
     }
+
 
 
 }

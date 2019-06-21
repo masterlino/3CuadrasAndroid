@@ -9,7 +9,7 @@
     <dimen name="business_distance_text_size">14sp</dimen>
     <dimen name="pin_image_marginLeft">0dp</dimen>
     <dimen name="business_favorite_image_marginLeft">10dp</dimen>
-    <dimen name="business_name_max_width">220dp</dimen>
+    <dimen name="business_name_max_width">170dp</dimen>
     <dimen name="toolbar_margin_top">20dp</dimen>
     <dimen name="toolbar_preferences_width">45dp</dimen>
     <dimen name="toolbar_preferences_height">45dp</dimen>

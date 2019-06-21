@@ -1,6 +1,7 @@
 package com.example.a3cuadras.fragments
 
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.view.ViewPager
@@ -21,9 +22,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.mimo.sampleadvanced.network.GsonRequest
 import com.mimo.sampleadvanced.network.RequestsManager
-import java.net.URL
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.pm.PackageManager
 
 class BusinessDetailFragment: Fragment(), OnMapReadyCallback {
+    @SuppressLint("MissingPermission")
     override fun onMapReady(p0: GoogleMap?) {
         if (p0 != null && currentBusinessDetailItem != null) {
             map = p0
@@ -33,13 +37,14 @@ class BusinessDetailFragment: Fragment(), OnMapReadyCallback {
                 val mLatLng : LatLng = LatLng(latitude, longitude)
                 map.addMarker(MarkerOptions().position(mLatLng))
                 map.moveCamera(CameraUpdateFactory.newLatLng(mLatLng))
-                val mGoogleMapOptions : GoogleMapOptions = GoogleMapOptions().liteMode(true)
+                val mGoogleMapOptions : GoogleMapOptions = GoogleMapOptions().liteMode(true).zoomControlsEnabled(true)
                 map.mapType = mGoogleMapOptions.mapType
+                map.uiSettings.isMyLocationButtonEnabled = true
+                map.isMyLocationEnabled = true
+                map.uiSettings.isZoomControlsEnabled = true
                 //map.uiSettings.setAllGesturesEnabled(false)
-                map.animateCamera(CameraUpdateFactory.zoomTo(13.0f))
+                map.animateCamera(CameraUpdateFactory.zoomTo(15.0f))
             }
-
-
         }
     }
 
@@ -70,10 +75,10 @@ class BusinessDetailFragment: Fragment(), OnMapReadyCallback {
                 currentBusinessDetailItem = it
                 (view.findViewById(R.id.tv_rating) as TextView).text = it.rating.toInt().toString() + getString(R.string.rating_tail)
                 (view.findViewById(R.id.tv_price) as TextView).text = it.price + " " + getString(R.string.price_tail)
-                if ( it.is_closed ){
-                    (view.findViewById(R.id.tv_available) as TextView).text = getString(R.string.closed)
+                if ( !it.is_closed ){
+                    (view.findViewById(R.id.tv_available) as TextView).text = getString(R.string.open)
                 }
-                else (view.findViewById(R.id.tv_available) as TextView).text = getString(R.string.open)
+                else (view.findViewById(R.id.tv_available) as TextView).text = getString(R.string.closed)
 
                 if (it.phone.count() > 0)
                     (view.findViewById(R.id.tv_phone) as TextView).text = it.phone
