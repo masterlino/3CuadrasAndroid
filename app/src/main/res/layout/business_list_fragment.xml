@@ -4,16 +4,12 @@
               android:layout_height="match_parent"
               android:paddingTop="@dimen/business_list_fragment_padding"
               android:paddingHorizontal="@dimen/business_list_fragment_padding">
-    <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipeRefresh_Layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvBusiness"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
         />
-    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
 

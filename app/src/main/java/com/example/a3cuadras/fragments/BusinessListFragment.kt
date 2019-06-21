@@ -32,8 +32,6 @@ class BusinessListFragment: Fragment() {
     private var mLocation: Location? = null
 
     private var mView : View? = null
-    private var mswipeRefreshLayout : SwipeRefreshLayout? = null
-    private var adapter: BusinessAdapter? = null
 
     companion object{
         fun newInstance(location: Location?): BusinessListFragment{
@@ -52,8 +50,6 @@ class BusinessListFragment: Fragment() {
             URLLocation = URL + "latitude=" + mLocation!!.latitude.toString() + "&longitude=" + mLocation!!.longitude.toString()
         }
         mView = inflater.inflate(R.layout.business_list_fragment, container, false)
-        mswipeRefreshLayout = mView?.findViewById(R.id.swipeRefresh_Layout)
-        mswipeRefreshLayout?.setOnRefreshListener { launcRequest() }
         return mView
     }
 

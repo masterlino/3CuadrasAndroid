@@ -15,11 +15,18 @@
             app:menu="@menu/navigation"
             android:background="?android:windowBackground"
     />
-    <FrameLayout android:id="@+id/mainflContent"
-                 android:layout_width="match_parent"
-                 android:layout_height="match_parent"
-                 android:layout_above="@id/bottonNavigationView"
-    />
+    <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <FrameLayout android:id="@+id/mainflContent"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_above="@id/bottonNavigationView"
+        />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
     <android.support.v7.widget.Toolbar android:layout_width="match_parent"
                                        android:layout_height="wrap_content"
                                        android:layout_alignParentTop="true"

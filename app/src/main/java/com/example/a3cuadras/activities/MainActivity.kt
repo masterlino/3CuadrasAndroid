@@ -11,7 +11,9 @@ import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
+import android.support.v4.widget.SwipeRefreshLayout
 import android.view.MenuItem
+import android.view.View
 import com.example.a3cuadras.R
 import com.example.a3cuadras.fragments.BusinessListFragment
 import com.example.a3cuadras.fragments.FavoritesBusinessListFragment
@@ -19,10 +21,18 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.contentView
+
+
+
+
 class MainActivity : AppCompatActivity() {
 
     private var mFusedLocationProviderClient: FusedLocationProviderClient? = null
     private var currentLocation : Location? = null
+
+    private var mView : View? = null
+    private var mswipeRefreshLayout : SwipeRefreshLayout? = null
 
     companion object{
         val FavoritesDBNAME = "favoriusiness"
@@ -37,8 +47,13 @@ class MainActivity : AppCompatActivity() {
 
         openBusinessListFragmentWithLocation()
 
-        
+        mswipeRefreshLayout = findViewById(R.id.swipeRefresh_Layout)
 
+        mswipeRefreshLayout?.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+            openBusinessListFragmentWithLocation()
+            bottonNavigationView.selectedItemId = R.id.navigationAll
+            mswipeRefreshLayout?.isRefreshing = false
+        })
     }
 
     private fun openBusinessListFragmentWithLocation() {
@@ -48,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             ){
                 mFusedLocationProviderClient?.lastLocation?.addOnSuccessListener(this, OnSuccessListener<Location>(){
                     if (it != null){
+                        mswipeRefreshLayout?.isRefreshing = false
                         currentLocation = it
                         //new instance of BusinessListFragment
                         val targetFragment: Fragment
@@ -70,6 +86,7 @@ class MainActivity : AppCompatActivity() {
         else{
             mFusedLocationProviderClient?.lastLocation?.addOnSuccessListener(this, OnSuccessListener<Location>(){
                 if (it != null){
+                    mswipeRefreshLayout?.isRefreshing = false
                     currentLocation = it
                     //new instance of BusinessListFragment
                     val targetFragment: Fragment
@@ -112,6 +129,7 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED){
             mFusedLocationProviderClient?.lastLocation?.addOnSuccessListener(this, OnSuccessListener<Location>(){
                 if (it != null){
+                    mswipeRefreshLayout?.isRefreshing = false
                     currentLocation = it
                     //new instance of BusinessListFragment
                     val targetFragment: Fragment
