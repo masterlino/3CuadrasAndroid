@@ -2,9 +2,9 @@ package com.example.a3cuadras.activities
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
-import android.location.LocationManager
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
 import android.support.v4.widget.SwipeRefreshLayout
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.example.a3cuadras.R
@@ -21,9 +22,6 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnSuccessListener
 import kotlinx.android.synthetic.main.activity_main.*
-import org.jetbrains.anko.contentView
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -145,6 +143,22 @@ class MainActivity : AppCompatActivity() {
                 }
             })
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.preferences, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val id  = item?.itemId
+        when (id){
+            R.id.navigationPreferences -> {
+                val intent : Intent = Intent(this.baseContext, PreferencesActivity::class.java )
+                startActivity(intent)
+            }
+        }
+        return true
     }
 
 }

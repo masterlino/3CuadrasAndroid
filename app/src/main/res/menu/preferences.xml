@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/navigationPreferences"
+          android:icon="@drawable/white_menu_icon"
+          android:title="@string/navigationPreferences"/>
+</menu>
