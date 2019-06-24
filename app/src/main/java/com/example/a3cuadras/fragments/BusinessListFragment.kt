@@ -14,6 +14,7 @@ import com.android.volley.Response
 import com.example.a3cuadras.adapters.BusinessAdapter
 import com.example.a3cuadras.activities.MainActivity.Companion.FavoritesDBNAME
 import com.example.a3cuadras.R
+import com.example.a3cuadras.Services.Preferences
 import com.example.a3cuadras.activities.BusinessDetailsActivity
 import com.example.a3cuadras.database.FavoriteBusinessDatabase
 import com.example.a3cuadras.model.BusinessItem
@@ -29,9 +30,11 @@ class BusinessListFragment: Fragment() {
 
     private val URL = "https://api.yelp.com/v3/businesses/search?"
     private var URLLocation : String? = null
+    private var URLLocationMore : String? = null
     private var mLocation: Location? = null
 
     private var mView : View? = null
+    var prefs: Preferences? = null
 
     companion object{
         fun newInstance(location: Location?): BusinessListFragment{
@@ -44,11 +47,15 @@ class BusinessListFragment: Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        prefs = Preferences(container!!.context)
         //get the current location if exits
         mLocation = arguments?.getParcelable("currentLocation")
         if (mLocation != null){
             URLLocation = URL + "latitude=" + mLocation!!.latitude.toString() + "&longitude=" + mLocation!!.longitude.toString()
+            URLLocationMore = URLLocation + "&limit=" + prefs!!.maxResults.toString() + "&radius=" + prefs!!.maxDistance.toString() + "&price=" + prefs!!.pricesToString()
         }
+
+
         mView = inflater.inflate(R.layout.business_list_fragment, container, false)
         return mView
     }
@@ -59,10 +66,28 @@ class BusinessListFragment: Fragment() {
         launcRequest()
     }
 
+    override fun onResume() {
+        super.onResume()
+        launcRequest()
+    }
+
+    override fun getUserVisibleHint(): Boolean {
+        return super.getUserVisibleHint()
+
+    }
+
     private fun launcRequest() {
+        //check for additional parameters
         var mUrl : String
-        if (URLLocation != null) mUrl = URLLocation!!
-        else mUrl = URL
+        if (URLLocationMore != null)
+            mUrl = URLLocationMore!!
+        else{
+            if (URLLocation != null) {
+                mUrl = URLLocation!!
+            }
+            else mUrl = URL
+        }
+
         val newRequest = GsonRequest<BusinessListItem>(mUrl, BusinessListItem::class.java, null,
             Response.Listener<BusinessListItem> {
 

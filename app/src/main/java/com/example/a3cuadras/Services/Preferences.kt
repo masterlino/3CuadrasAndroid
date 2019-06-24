@@ -38,4 +38,44 @@ class Preferences(val context : Context) {
     var very_expensive: Boolean
         get() = prefs.getBoolean(VERY_EXPENSIVE, true)
         set(value) = prefs.edit().putBoolean(VERY_EXPENSIVE, value).apply()
+
+    fun pricesToString() : String {
+        var pricesStringParameter = ""
+        var cadenaVacia = true
+
+        if (cheap) {
+            if (cadenaVacia){
+                pricesStringParameter += "1"
+                cadenaVacia = false
+            }
+        }
+        if (average){
+            if (cadenaVacia) {
+                pricesStringParameter += "2"
+                cadenaVacia = false
+            }
+            else{
+                pricesStringParameter += ",2"
+            }
+        }
+        if (expensive){
+            if (cadenaVacia){
+                pricesStringParameter += "3"
+                cadenaVacia = false
+            }
+            else{
+                pricesStringParameter += ",3"
+            }
+        }
+        if (very_expensive){
+            if (cadenaVacia){
+                pricesStringParameter += "4"
+                cadenaVacia = false
+            }
+            else{
+                pricesStringParameter += ",4"
+            }
+        }
+        return pricesStringParameter;
+    }
 }
