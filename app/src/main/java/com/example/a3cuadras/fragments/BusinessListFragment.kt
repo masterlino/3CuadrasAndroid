@@ -122,6 +122,7 @@ class BusinessListFragment: Fragment() {
             })
 
         RequestsManager.getInstance(this.requireContext()).addToRequestQueue(newRequest)
+
         rvBusiness.adapter?.notifyDataSetChanged()
     }
 

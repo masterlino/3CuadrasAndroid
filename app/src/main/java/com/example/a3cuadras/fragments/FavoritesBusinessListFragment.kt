@@ -1,6 +1,7 @@
 package com.example.a3cuadras.fragments
 
 import android.arch.persistence.room.Room
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import com.example.a3cuadras.adapters.BusinessAdapter
 import com.example.a3cuadras.activities.MainActivity
 import com.example.a3cuadras.R
+import com.example.a3cuadras.activities.BusinessDetailsActivity
 import com.example.a3cuadras.database.FavoriteBusinessDatabase
 import com.example.a3cuadras.model.BusinessItem
 import kotlinx.android.synthetic.main.favorite_business_list_fragment.*
@@ -55,10 +57,17 @@ class FavoritesBusinessListFragment : Fragment() {
                         }
                         if (action == 0) {
                             //open detail activity
-                            print("Ok")
+                            openBusinessDetail(businessItem)
                         }
                     }
             }
         }
+    }
+
+    //show the Business Detail Activity
+    private fun openBusinessDetail(businessItem: BusinessItem) {
+        val intent : Intent = Intent(this.context, BusinessDetailsActivity::class.java )
+        intent.putExtra("business", businessItem)
+        startActivity(intent)
     }
 }
