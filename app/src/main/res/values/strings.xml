@@ -9,4 +9,14 @@
     <string name="not_available">No disponible</string>
     <string name="title_activity_maps">Map</string>
     <string name="navigationPreferences">Preferencias</string>
+    <string name="info_Premiun">Estas ejecutando la version Premium de 3 cuadras. Se capaz de encontrar los
+        establecimientos de bebidas y comida cercanos a tu posición.Para ello no olvides aceptar el compartir la
+        localizacion de tu dispositivo para tener la referencia y comenzar a buscar los mejores establecimientos de
+        comida y bedida. Aprovecha para jugar con las preferencias de buscqueda en nuestro menu de aplicacion y filtra
+        tus busquedas para afinar mejor lo que realmente te apetece. Por supuesto no olvides marcar tus favoritos y
+        consultalos en cualquier momento para no tener que perder tus busquedas. Otra cosa! pincha en los
+        establecimientos! visualiza la informacion de precio, horario, valoración del establecimiento asi como poder
+        ponerte en contacto para hacer tu pedido o reserva o por que no? un mapa donde poder ubicar y recoger tu mismo
+        la comida o bebida que te apetece.
+    </string>
 </resources>

@@ -16,7 +16,7 @@ class Preferences(val context : Context) {
     val VERY_EXPENSIVE = "very_expensive"
 
     var maxDistance: Int
-        get() = prefs.getInt(MAX_DISTANCE, 100)
+        get() = prefs.getInt(MAX_DISTANCE, 1000)
         set(value) = prefs.edit().putInt(MAX_DISTANCE, value).apply()
 
     var maxResults: Int

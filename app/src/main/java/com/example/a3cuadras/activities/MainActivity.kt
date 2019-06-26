@@ -157,6 +157,10 @@ class MainActivity : AppCompatActivity() {
                 val intent : Intent = Intent(this.baseContext, PreferencesActivity::class.java )
                 startActivity(intent)
             }
+            R.id.navigationInfo -> {
+                val intent : Intent = Intent(this.baseContext, InfoActivity::class.java )
+                startActivity(intent)
+            }
         }
         return true
     }
