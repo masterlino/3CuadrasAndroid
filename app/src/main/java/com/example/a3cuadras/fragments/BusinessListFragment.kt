@@ -5,15 +5,14 @@ import android.content.Intent
 import android.location.Location
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.android.volley.Response
+import com.example.a3cuadras.R
 import com.example.a3cuadras.adapters.BusinessAdapter
 import com.example.a3cuadras.activities.MainActivity.Companion.FavoritesDBNAME
-import com.example.a3cuadras.R
 import com.example.a3cuadras.Services.Preferences
 import com.example.a3cuadras.activities.BusinessDetailsActivity
 import com.example.a3cuadras.database.FavoriteBusinessDatabase
@@ -24,6 +23,7 @@ import com.mimo.sampleadvanced.network.RequestsManager
 import kotlinx.android.synthetic.main.business_list_fragment.*
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
+
 
 class BusinessListFragment: Fragment() {
     private lateinit var favoritesDB : FavoriteBusinessDatabase

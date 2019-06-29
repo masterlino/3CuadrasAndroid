@@ -22,4 +22,5 @@
     <dimen name="label_font_size">18dp</dimen>
     <dimen name="map_fragment_top_margin">6dp</dimen>
     <dimen name="fragment_map_layout_height_">240dp</dimen>
+    <dimen name="dialog_title_size">19dp</dimen>
 </resources>

@@ -30,6 +30,8 @@ class PreferencesActivity : AppCompatActivity() {
 
         switch4.isChecked = prefs!!.very_expensive
 
+
+
     }
 
     override fun onPause() {
