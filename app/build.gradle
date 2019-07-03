@@ -6,6 +6,14 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        Release {
+            storeFile file('/Users/lino/Documents/Master MIMO/4 Desarrollo de aplicaciones Android/Entrega/KeyStoreMimo')
+            storePassword 'zxFvht!z'
+            keyAlias = 'key0'
+            keyPassword 'MyKeyPassword'
+        }
+    }
     compileSdkVersion 28
     defaultConfig {
 
@@ -14,6 +22,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.Release
+        maxSdkVersion 28
     }
     buildTypes {
         release {
@@ -31,10 +41,10 @@ android {
 
     productFlavors {
         freemium {
-            applicationId "com.example.a3cuadras.freemium"
+            applicationId "com.dreampiece.a3cuadras.freemium"
         }
         premium {
-            applicationId "com.example.a3cuadras"
+            applicationId "com.dreampiece.a3cuadras.premium"
         }
     }
 

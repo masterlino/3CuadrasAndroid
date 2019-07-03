@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.a3cuadras">
+          package="com.dreampiece.a3cuadras">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -19,7 +19,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             android:usesCleartextTraffic="true">
-        <activity android:name=".activities.InfoActivity"
+        <activity android:name="com.dreampiece.a3cuadras.activities.InfoActivity"
                   android:screenOrientation="portrait">
         </activity>
 
@@ -39,15 +39,15 @@
                 android:value="@string/google_maps_key"/>
 
         <activity
-                android:name=".activities.BusinessDetailsActivity"
+                android:name="com.dreampiece.a3cuadras.activities.BusinessDetailsActivity"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name=".activities.PreferencesActivity"
+                android:name="com.dreampiece.a3cuadras.activities.PreferencesActivity"
                 android:screenOrientation="portrait">
         </activity>
         <activity
-                android:name=".activities.MainActivity"
+                android:name="com.dreampiece.a3cuadras.activities.MainActivity"
                 android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
