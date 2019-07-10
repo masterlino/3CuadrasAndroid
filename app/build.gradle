@@ -8,10 +8,10 @@ apply plugin: 'kotlin-android-extensions'
 android {
     signingConfigs {
         Release {
-            storeFile file('/Users/lino/Documents/Master MIMO/4 Desarrollo de aplicaciones Android/Entrega/KeyStoreMimo')
-            storePassword 'zxFvht!z'
+            storeFile file('/Users/lino/Documents/Master MIMO/4 Desarrollo de aplicaciones Android/Entrega/KeyStoreEntrega')
+            storePassword 'mimo2019'
             keyAlias = 'key0'
-            keyPassword 'MyKeyPassword'
+            keyPassword 'mimo2019'
         }
     }
     compileSdkVersion 28

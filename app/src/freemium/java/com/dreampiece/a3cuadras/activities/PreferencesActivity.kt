@@ -37,17 +37,17 @@ class PreferencesActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
 
-        prefs!!.maxDistance = seekBar1.progress
+        prefs?.maxDistance = seekBar1.progress
 
-        prefs!!.maxResults = seekBar2.progress
+        prefs?.maxResults = seekBar2.progress
 
-        prefs!!.cheap = switch1.isChecked
+        prefs?.cheap = switch1.isChecked
 
-        prefs!!.average =  switch2.isChecked
+        prefs?.average =  switch2.isChecked
 
-        prefs!!.expensive = switch3.isChecked
+        prefs?.expensive = switch3.isChecked
 
-        prefs!!.very_expensive = switch4.isChecked
+        prefs?.very_expensive = switch4.isChecked
 
     }
 }
